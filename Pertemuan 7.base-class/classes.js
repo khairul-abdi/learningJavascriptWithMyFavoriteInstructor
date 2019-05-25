@@ -53,3 +53,31 @@ console.log(johnProfile.fullName());
 console.log(johnProfile.display());
 johnProfile.updateEmail("my@mail.com");
 
+class profileSecret extends Profile {
+    constructor(firstName, lastName, email, password) {
+        super(firstName, lastName, email, password)
+        this.password = password;
+    }
+    display() {
+        return `
+         First Name : ${this.firstName}
+         Last Name  : ${this.lastName}
+         Email      : ${this.email}
+         Password   : ${this.password}
+         `;
+    }
+    updatePassword(newPassword) {
+        this.password = newPassword;
+        console.log("Password Update");
+        console.log(this.display());
+
+    }
+}
+
+const mario = new profileSecret("Mario", "Bros", "Mario@mail.com", "123");
+console.log(mario.display());
+mario.updatePassword("321");
+
+
+
+
